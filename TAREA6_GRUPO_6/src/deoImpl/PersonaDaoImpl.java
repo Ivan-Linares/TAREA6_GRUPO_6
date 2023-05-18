@@ -53,9 +53,9 @@ public class PersonaDaoImpl implements IPersona{
 		try
 		{
 			statement = conexion.prepareStatement(modificar);
-			statement.setString(2, modificarPersona.getNombre());
-			statement.setString(3, modificarPersona.getApellido());
-			statement.setString(1, modificarPersona.getDNI());
+			statement.setString(1, modificarPersona.getNombre());
+			statement.setString(2, modificarPersona.getApellido());
+			statement.setString(3, modificarPersona.getDNI());
 			if(statement.executeUpdate() > 0)
 			{
 				conexion.commit();
