@@ -6,10 +6,7 @@ public class Persona
 	private String Nombre;
 	private String Apellido;
 	
-	public Persona()
-	{
-		
-	}
+	public Persona(){}
 	
 	public Persona(String DNI, String Nombre, String Apellido)
 	{
@@ -41,6 +38,10 @@ public class Persona
 	public void setApellido(String apellido) {
 		Apellido = apellido;
 	}
-	
+
+	@Override
+	public String toString() {
+		return DNI + " - " + Nombre + " - " + Apellido;
+	}
 	
 }
