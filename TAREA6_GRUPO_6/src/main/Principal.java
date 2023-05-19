@@ -1,9 +1,19 @@
 package main;
+import presentacion.vista.VentanaPrincipal;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+			
+		try 
+		{
+			VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+			ventanaPrincipal.setVisible(true);
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
 
 	}
 
