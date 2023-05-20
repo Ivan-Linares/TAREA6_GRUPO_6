@@ -1,5 +1,6 @@
 package main;
 import presentacion.vista.VentanaPrincipal;
+import presentacion.controlador.*;
 
 public class Principal {
 
@@ -9,6 +10,9 @@ public class Principal {
 		{
 			VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
 			ventanaPrincipal.setVisible(true);
+			
+			VentanaPrincipalControlador controladorVentana = new VentanaPrincipalControlador(ventanaPrincipal);
+			controladorVentana.inicializar();
 		} 
 		catch (Exception e) 
 		{
