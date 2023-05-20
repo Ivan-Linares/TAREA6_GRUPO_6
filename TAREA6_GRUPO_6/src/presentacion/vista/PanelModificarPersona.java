@@ -8,43 +8,49 @@ import java.awt.Insets;
 import java.awt.Font;
 import javax.swing.JList;
 import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.JTextField;
+import java.awt.SystemColor;
 
 public class PanelModificarPersona  extends JPanel {
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 	public PanelModificarPersona() {
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 101, 139, 120, 101, 0};
-		gridBagLayout.rowHeights = new int[]{0, 191, 28, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
-		setLayout(gridBagLayout);
+		setBackground(SystemColor.controlHighlight);
+		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Eliminar usuarios");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel.gridwidth = 2;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 2;
-		gbc_lblNewLabel.gridy = 0;
-		add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblSeleccionarUsuarioA = new JLabel("Seleccionar persona a modificar");
+		lblSeleccionarUsuarioA.setBounds(25, 11, 201, 14);
+		add(lblSeleccionarUsuarioA);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setForeground(Color.WHITE);
+		panel.setBounds(25, 36, 274, 105);
+		add(panel);
 		
 		JList list = new JList();
-		GridBagConstraints gbc_list = new GridBagConstraints();
-		gbc_list.gridwidth = 2;
-		gbc_list.insets = new Insets(0, 0, 5, 5);
-		gbc_list.fill = GridBagConstraints.BOTH;
-		gbc_list.gridx = 2;
-		gbc_list.gridy = 1;
-		add(list, gbc_list);
+		panel.add(list);
 		
-		JButton btnNewButton = new JButton("Eliminar");
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnNewButton.gridwidth = 2;
-		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 2;
-		gbc_btnNewButton.gridy = 2;
-		add(btnNewButton, gbc_btnNewButton);
+		textField = new JTextField();
+		textField.setBounds(25, 152, 86, 20);
+		add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(121, 152, 86, 20);
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(213, 152, 86, 20);
+		add(textField_2);
+		textField_2.setColumns(10);
+		
+		JButton btnModificar = new JButton("Modificar");
+		btnModificar.setBounds(121, 183, 89, 23);
+		add(btnModificar);
+		
 	}
-
 }
