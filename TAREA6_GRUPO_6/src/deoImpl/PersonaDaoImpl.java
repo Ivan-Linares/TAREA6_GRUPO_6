@@ -2,7 +2,9 @@ package deoImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.IPersona;
@@ -77,14 +79,58 @@ public class PersonaDaoImpl implements IPersona{
 
 	@Override
 	public boolean Eliminar(Persona eliminarPersona) {
-		// TODO Auto-generated method stub
-		return false;
+		PreparedStatement statement;
+		Connection conexion = Conexion.getConexion().getSQLConexion();
+		boolean borrarExitoso = false;
+		try {
+			statement = conexion.prepareStatement(eliminar);
+			statement.setString(1, eliminarPersona.getDNI());
+			if(statement.executeUpdate() > 0) {
+				conexion.commit();
+				borrarExitoso = true;
+			}
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			try {
+				conexion.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}
+		return borrarExitoso;
 	}
 
 	@Override
 	public List<Persona> Listar() {
-		// TODO Auto-generated method stub
-		return null;
+		PreparedStatement statement;
+		Connection conexion = Conexion.getConexion().getSQLConexion();
+		ResultSet resultSet;
+		ArrayList<Persona> personas = new ArrayList<Persona>();
+		try {
+			statement = conexion.prepareStatement(listar);
+			resultSet = statement.executeQuery();
+			while(resultSet.next()) {
+				personas.add(getPersona(resultSet));
+			}
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			try {
+				conexion.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}
+		return personas;
 	}
-
+	
+	private Persona getPersona(ResultSet resultSet) throws SQLException{
+		String dni = resultSet.getString("Dni");
+		String nombre = resultSet.getString("Nombre");
+		String apellido = resultSet.getString("Apellido");
+		return new Persona(dni, nombre, apellido);
+	}
 }
