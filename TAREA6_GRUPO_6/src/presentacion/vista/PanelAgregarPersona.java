@@ -13,83 +13,117 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 
 public class PanelAgregarPersona extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtNombre;
+	private JTextField txtApellido;
+	private JTextField txtDNI;
+	private JButton btnAceptar;
+	
 	public PanelAgregarPersona() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 174, 139, 70, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 33, 14, 0, 8, 0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 0, 76, 144, 139, 70, 0, 0};
+		gridBagLayout.rowHeights = new int[]{40, 33, 37, 36, 8, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 3;
-		gbc_lblNewLabel.gridy = 1;
-		add(lblNewLabel, gbc_lblNewLabel);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 12));
+		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
+		gbc_lblNombre.anchor = GridBagConstraints.WEST;
+		gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNombre.gridx = 3;
+		gbc_lblNombre.gridy = 1;
+		add(lblNombre, gbc_lblNombre);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 5);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 4;
-		gbc_textField.gridy = 1;
-		add(textField, gbc_textField);
-		textField.setColumns(10);
+		txtNombre = new JTextField();
+		GridBagConstraints gbc_txtNombre = new GridBagConstraints();
+		gbc_txtNombre.insets = new Insets(0, 0, 5, 5);
+		gbc_txtNombre.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtNombre.gridx = 4;
+		gbc_txtNombre.gridy = 1;
+		add(txtNombre, gbc_txtNombre);
+		txtNombre.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Apellido");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_1.gridx = 3;
-		gbc_lblNewLabel_1.gridy = 2;
-		add(lblNewLabel_1, gbc_lblNewLabel_1);
+		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setFont(new Font("Tahoma", Font.BOLD, 12));
+		GridBagConstraints gbc_lblApellido = new GridBagConstraints();
+		gbc_lblApellido.anchor = GridBagConstraints.WEST;
+		gbc_lblApellido.insets = new Insets(0, 0, 5, 5);
+		gbc_lblApellido.gridx = 3;
+		gbc_lblApellido.gridy = 2;
+		add(lblApellido, gbc_lblApellido);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 4;
-		gbc_textField_1.gridy = 2;
-		add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		txtApellido = new JTextField();
+		GridBagConstraints gbc_txtApellido = new GridBagConstraints();
+		gbc_txtApellido.insets = new Insets(0, 0, 5, 5);
+		gbc_txtApellido.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtApellido.gridx = 4;
+		gbc_txtApellido.gridy = 2;
+		add(txtApellido, gbc_txtApellido);
+		txtApellido.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Dni");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-		gbc_lblNewLabel_2.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_2.gridx = 3;
-		gbc_lblNewLabel_2.gridy = 3;
-		add(lblNewLabel_2, gbc_lblNewLabel_2);
+		JLabel lblDNI = new JLabel("Dni");
+		lblDNI.setFont(new Font("Tahoma", Font.BOLD, 12));
+		GridBagConstraints gbc_lblDNI = new GridBagConstraints();
+		gbc_lblDNI.anchor = GridBagConstraints.WEST;
+		gbc_lblDNI.insets = new Insets(0, 0, 5, 5);
+		gbc_lblDNI.gridx = 3;
+		gbc_lblDNI.gridy = 3;
+		add(lblDNI, gbc_lblDNI);
 		
-		textField_2 = new JTextField();
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridx = 4;
-		gbc_textField_2.gridy = 3;
-		add(textField_2, gbc_textField_2);
-		textField_2.setColumns(10);
+		txtDNI = new JTextField();
+		GridBagConstraints gbc_txtDNI = new GridBagConstraints();
+		gbc_txtDNI.insets = new Insets(0, 0, 5, 5);
+		gbc_txtDNI.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtDNI.gridx = 4;
+		gbc_txtDNI.gridy = 3;
+		add(txtDNI, gbc_txtDNI);
+		txtDNI.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Aceptar");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.addActionListener(new ActionListener() {
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 3;
-		gbc_btnNewButton.gridy = 4;
-		add(btnNewButton, gbc_btnNewButton);
+		GridBagConstraints gbc_btnAceptar = new GridBagConstraints();
+		gbc_btnAceptar.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAceptar.insets = new Insets(0, 0, 0, 5);
+		gbc_btnAceptar.gridx = 3;
+		gbc_btnAceptar.gridy = 4;
+		add(btnAceptar, gbc_btnAceptar);
 	}
 
+	public JTextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public JTextField getTxtApellido() {
+		return txtApellido;
+	}
+
+	public void setTxtApellido(JTextField txtApellido) {
+		this.txtApellido = txtApellido;
+	}
+
+	public JTextField getTxtDNI() {
+		return txtDNI;
+	}
+
+	public void setTxtDNI(JTextField txtDNI) {
+		this.txtDNI = txtDNI;
+	}
+
+	public JButton getBtnAceptar() {
+		return btnAceptar;
+	}
+
+	public void setBtnAceptar(JButton btnAceptar) {
+		this.btnAceptar = btnAceptar;
+	}
+	
 }

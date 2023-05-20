@@ -13,9 +13,9 @@ import javax.swing.JTextField;
 import java.awt.SystemColor;
 
 public class PanelModificarPersona  extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtNombre;
+	private JTextField txtApellido;
+	private JTextField txtDNI;
 	public PanelModificarPersona() {
 		setBackground(SystemColor.controlHighlight);
 		setLayout(null);
@@ -33,20 +33,22 @@ public class PanelModificarPersona  extends JPanel {
 		JList list = new JList();
 		panel.add(list);
 		
-		textField = new JTextField();
-		textField.setBounds(25, 152, 86, 20);
-		add(textField);
-		textField.setColumns(10);
+		txtNombre = new JTextField();
+		txtNombre.setBounds(25, 152, 86, 20);
+		add(txtNombre);
+		txtNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(121, 152, 86, 20);
-		add(textField_1);
-		textField_1.setColumns(10);
+		txtApellido = new JTextField();
+		txtApellido.setBounds(121, 152, 86, 20);
+		add(txtApellido);
+		txtApellido.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(213, 152, 86, 20);
-		add(textField_2);
-		textField_2.setColumns(10);
+		txtDNI = new JTextField();
+		txtDNI.setEnabled(false);
+		txtDNI.setEditable(false);
+		txtDNI.setBounds(213, 152, 86, 20);
+		add(txtDNI);
+		txtDNI.setColumns(10);
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.setBounds(121, 183, 89, 23);
