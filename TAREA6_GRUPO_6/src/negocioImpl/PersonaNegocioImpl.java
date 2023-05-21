@@ -15,7 +15,6 @@ public class PersonaNegocioImpl implements PersonaNegocio {
 		
 		if(nuevaPersona.getNombre().trim().length()>0 && nuevaPersona.getApellido().trim().length()>0 && nuevaPersona.getDNI().length() > 0)
 		{
-			System.out.println("entroPerwsonaNegocioIMpl");
 			estado= personaDao.Insertar(nuevaPersona);
 		}
 		
