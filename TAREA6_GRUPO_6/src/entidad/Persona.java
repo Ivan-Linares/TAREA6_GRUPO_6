@@ -41,7 +41,7 @@ public class Persona
 
 	@Override
 	public String toString() {
-		return DNI + " - " + Nombre + " - " + Apellido;
+		return Nombre + " " + Apellido + " " + DNI;
 	}
 	
 }

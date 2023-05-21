@@ -2,6 +2,7 @@ package presentacion.vista;
 
 import javax.swing.JPanel;
 import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -11,6 +12,26 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 public class PanelEliminarPersona  extends JPanel {
+	
+	private JList listaPersonas;
+	private JButton btnEliminarPersona;
+	
+	public JList getListaPersonas() {
+		return listaPersonas;
+	}
+
+	public void setListaPersonas(JList listaPersonas) {
+		this.listaPersonas = listaPersonas;
+	}
+
+	public JButton getBtnEliminarPersona() {
+		return btnEliminarPersona;
+	}
+
+	public void setBtnEliminarPersona(JButton btnEliminarPersona) {
+		this.btnEliminarPersona = btnEliminarPersona;
+	}
+
 	public PanelEliminarPersona() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 101, 139, 120, 101, 0};
@@ -29,22 +50,24 @@ public class PanelEliminarPersona  extends JPanel {
 		gbc_lblNewLabel.gridy = 0;
 		add(lblNewLabel, gbc_lblNewLabel);
 		
-		JList list = new JList();
+		listaPersonas = new JList();
 		GridBagConstraints gbc_list = new GridBagConstraints();
 		gbc_list.gridwidth = 2;
 		gbc_list.insets = new Insets(0, 0, 5, 5);
 		gbc_list.fill = GridBagConstraints.BOTH;
 		gbc_list.gridx = 2;
 		gbc_list.gridy = 1;
-		add(list, gbc_list);
+		add(listaPersonas, gbc_list);
 		
-		JButton btnNewButton = new JButton("Eliminar");
+		btnEliminarPersona = new JButton("Eliminar");
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNewButton.gridwidth = 2;
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton.gridx = 2;
 		gbc_btnNewButton.gridy = 2;
-		add(btnNewButton, gbc_btnNewButton);
+		add(btnEliminarPersona, gbc_btnNewButton);
 	}
+	
+
 }

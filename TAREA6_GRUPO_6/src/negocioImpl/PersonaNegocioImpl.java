@@ -1,5 +1,6 @@
 package negocioImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 import entidad.Persona;
 import negocio.PersonaNegocio;
@@ -23,20 +24,26 @@ public class PersonaNegocioImpl implements PersonaNegocio {
 
 	@Override
 	public boolean Modificar(Persona modificarPersona) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean estado = false;
+		estado = personaDao.Modificar(modificarPersona);
+		return estado;
 	}
 
 	@Override
 	public boolean Eliminar(Persona eliminarPersona) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean estado = false;
+		
+		estado = personaDao.Eliminar(eliminarPersona);
+		
+		return estado;
 	}
 
 	@Override
 	public List<Persona> Listar() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Persona> personas = personaDao.Listar();
+		
+		return personas;
 	}
 
 }

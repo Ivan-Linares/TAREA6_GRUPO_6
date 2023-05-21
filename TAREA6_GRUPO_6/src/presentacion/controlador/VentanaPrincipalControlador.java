@@ -77,6 +77,9 @@ public class VentanaPrincipalControlador implements ActionListener
 		contentPane.add(panelEliminarPersona);
 		contentPane.repaint();
 		contentPane.revalidate();
+		
+		PersonaNegocio personaNegocio = new PersonaNegocioImpl();
+		EliminarPersonaControlador eliminarPersonaControlador = new EliminarPersonaControlador(panelEliminarPersona, personaNegocio);
 	}
 	
 	public void abrirPanelListarPersonas(ActionEvent e) {

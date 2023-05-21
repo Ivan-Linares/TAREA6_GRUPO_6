@@ -12,8 +12,7 @@ public class Principal {
 			ventanaPrincipal.setVisible(true);
 			
 			VentanaPrincipalControlador controladorVentana = new VentanaPrincipalControlador(ventanaPrincipal);
-			controladorVentana.inicializar();
-			
+			controladorVentana.inicializar();		
 			
 		} 
 		catch (Exception e) 

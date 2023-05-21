@@ -16,11 +16,12 @@ public class PersonaDaoImpl implements IPersona{
 	private static final String modificar = "UPDATE personas SET Nombre=?,Apellido=? where Dni=?";
 	private static final String eliminar = "DELETE FROM personas WHERE dni = ?";
 	private static final String listar = "SELECT * FROM personas";
+	Connection conexion = Conexion.getConexion().getSQLConexion();
 	
 	@Override
 	public boolean Insertar(Persona persona) {
 		PreparedStatement statement;
-		Connection conexion = Conexion.getConexion().getSQLConexion();
+		
 		boolean InsertExitoso = false;
 		try
 		{
@@ -80,7 +81,6 @@ public class PersonaDaoImpl implements IPersona{
 	@Override
 	public boolean Eliminar(Persona eliminarPersona) {
 		PreparedStatement statement;
-		Connection conexion = Conexion.getConexion().getSQLConexion();
 		boolean borrarExitoso = false;
 		try {
 			statement = conexion.prepareStatement(eliminar);
@@ -104,12 +104,15 @@ public class PersonaDaoImpl implements IPersona{
 
 	@Override
 	public List<Persona> Listar() {
+		
+		System.out.println("entro listar");
 		PreparedStatement statement;
-		Connection conexion = Conexion.getConexion().getSQLConexion();
 		ResultSet resultSet;
 		ArrayList<Persona> personas = new ArrayList<Persona>();
+		Conexion conexion = Conexion.getConexion();
+		
 		try {
-			statement = conexion.prepareStatement(listar);
+			statement = conexion.getSQLConexion().prepareStatement(listar);
 			resultSet = statement.executeQuery();
 			while(resultSet.next()) {
 				personas.add(getPersona(resultSet));
@@ -118,11 +121,6 @@ public class PersonaDaoImpl implements IPersona{
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
-			try {
-				conexion.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
 		}
 		return personas;
 	}
