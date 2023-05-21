@@ -106,8 +106,7 @@ public class PersonaDaoImpl implements IPersona{
 
 	@Override
 	public List<Persona> Listar() {
-		
-		System.out.println("entro listar");
+
 		PreparedStatement statement;
 		ResultSet resultSet;
 		ArrayList<Persona> personas = new ArrayList<Persona>();

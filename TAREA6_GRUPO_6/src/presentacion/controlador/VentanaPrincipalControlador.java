@@ -91,6 +91,9 @@ public class VentanaPrincipalControlador implements ActionListener
 		contentPane.add(panelListarPersonas);
 		contentPane.repaint();
 		contentPane.revalidate();
+		
+		PersonaNegocio personaNegocio = new PersonaNegocioImpl();
+		ListarPersonaControlador listarPersonaControlador = new ListarPersonaControlador(panelListarPersonas, personaNegocio);
 	}
 	
 	public void inicializar() {
