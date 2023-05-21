@@ -13,6 +13,8 @@ public class Principal {
 			
 			VentanaPrincipalControlador controladorVentana = new VentanaPrincipalControlador(ventanaPrincipal);
 			controladorVentana.inicializar();
+			
+			
 		} 
 		catch (Exception e) 
 		{

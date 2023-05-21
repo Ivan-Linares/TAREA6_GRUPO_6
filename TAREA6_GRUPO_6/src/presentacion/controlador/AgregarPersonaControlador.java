@@ -7,19 +7,21 @@ import javax.swing.JOptionPane;
 
 import dao.IPersona;
 import entidad.Persona;
+import negocio.PersonaNegocio;
 import presentacion.vista.PanelAgregarPersona;
 
 public class AgregarPersonaControlador implements ActionListener{
 
 	private PanelAgregarPersona panel;
-	private IPersona iPer;
+	private PersonaNegocio PersonaNegocio;
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {}
 	
-	public AgregarPersonaControlador(PanelAgregarPersona panelAgregar) {
-		
+	public AgregarPersonaControlador(PanelAgregarPersona panelAgregar, PersonaNegocio personaNegocio) {
+		this.panel = panelAgregar;
 		this.panel.getBtnAceptar().addActionListener(a->agregarPersona(a));
+		this.PersonaNegocio = personaNegocio;
 	}
 	
 	private void agregarPersona(ActionEvent a) {
@@ -27,8 +29,7 @@ public class AgregarPersonaControlador implements ActionListener{
 		String apellido = this.panel.getTxtApellido().getText();
 		String dni = this.panel.getTxtDNI().getText();
 		Persona nuevaPersona = new Persona(nombre, apellido, dni);
-		
-		boolean estado = iPer.Insertar(nuevaPersona);
+		boolean estado = PersonaNegocio.Insertar(nuevaPersona);
 		
 		if(estado==true)
 		{

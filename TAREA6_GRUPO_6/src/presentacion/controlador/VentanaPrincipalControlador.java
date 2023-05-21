@@ -1,6 +1,8 @@
 package presentacion.controlador;
 
 import java.awt.event.ActionEvent;
+import negocio.PersonaNegocio;
+import negocioImpl.PersonaNegocioImpl;
 import java.awt.event.ActionListener;
 import presentacion.vista.*;
 import javax.swing.JMenu;
@@ -56,6 +58,9 @@ public class VentanaPrincipalControlador implements ActionListener
 		contentPane.add(panelAgregarPersona);
 		contentPane.repaint();
 		contentPane.revalidate();		
+		
+		PersonaNegocio personaNegocio = new PersonaNegocioImpl();
+		AgregarPersonaControlador controladorAgregarPersona = new AgregarPersonaControlador(panelAgregarPersona, personaNegocio);
 	}
 	
 	public void abrirPanelModificarPersona(ActionEvent e) {
