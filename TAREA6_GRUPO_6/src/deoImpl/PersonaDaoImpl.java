@@ -53,6 +53,7 @@ public class PersonaDaoImpl implements IPersona{
 		PreparedStatement statement;
 		Connection conexion = Conexion.getConexion().getSQLConexion();
 		boolean modificarExitoso = false;
+		
 		try
 		{
 			statement = conexion.prepareStatement(modificar);
@@ -63,6 +64,7 @@ public class PersonaDaoImpl implements IPersona{
 			{
 				conexion.commit();
 				modificarExitoso = true;
+
 			}
 		} 
 		catch (SQLException e) 
