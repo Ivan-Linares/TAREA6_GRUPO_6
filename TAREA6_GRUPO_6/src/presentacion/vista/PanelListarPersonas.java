@@ -72,7 +72,6 @@ public class PanelListarPersonas  extends JPanel {
 			String nombre = p.getNombre();
 			String apellido = p.getApellido();
 			Object[] fila = {nombre, apellido, dni};
-			System.out.println(p.toString());
 			
 			this.getModelPersonas().addRow(fila);
 		}

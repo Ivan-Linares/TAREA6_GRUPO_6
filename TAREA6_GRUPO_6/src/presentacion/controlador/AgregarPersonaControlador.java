@@ -41,17 +41,30 @@ public class AgregarPersonaControlador implements ActionListener{
 		String apellido = this.panel.getTxtApellido().getText();
 		String dni = this.panel.getTxtDNI().getText();
 		Persona nuevaPersona = new Persona(dni, nombre, apellido);
-		boolean estado = PersonaNegocio.Insertar(nuevaPersona);
 		
-		if(estado==true)
-		{
-			JOptionPane.showMessageDialog(null, "Persona agregada con exito");
-			this.panel.getTxtNombre().setText("");
-			this.panel.getTxtApellido().setText("");
-			this.panel.getTxtDNI().setText("");
+		boolean existente = false;
+		
+		for (Persona x : PersonaNegocio.Listar()) {
+			if(x.getDNI().equals(dni)){
+				existente = true;
+				JOptionPane.showMessageDialog(null, "DNI ya existente");
+			}
 		}
-		else
-			JOptionPane.showMessageDialog(null, "Es necesario completar todos los campos");
+		if(existente==false) {
+			boolean estado = PersonaNegocio.Insertar(nuevaPersona);
+			if(estado==true)
+			{
+				JOptionPane.showMessageDialog(null, "Persona agregada con exito");
+				this.panel.getTxtNombre().setText("");
+				this.panel.getTxtApellido().setText("");
+				this.panel.getTxtDNI().setText("");
+			}
+			else
+				JOptionPane.showMessageDialog(null, "Es necesario completar todos los campos");
+			
+		}
+		
+		
 		
 	}
 	

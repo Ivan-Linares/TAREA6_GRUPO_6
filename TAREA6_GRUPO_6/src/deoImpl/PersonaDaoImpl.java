@@ -16,6 +16,7 @@ public class PersonaDaoImpl implements IPersona{
 	private static final String modificar = "UPDATE personas SET Nombre=?,Apellido=? where Dni=?";
 	private static final String eliminar = "DELETE FROM personas WHERE dni = ?";
 	private static final String listar = "SELECT * FROM personas";
+	
 	Connection conexion = Conexion.getConexion().getSQLConexion();
 	
 	@Override
@@ -132,4 +133,5 @@ public class PersonaDaoImpl implements IPersona{
 		String apellido = resultSet.getString("Apellido");
 		return new Persona(dni, nombre, apellido);
 	}
+
 }
